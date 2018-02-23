@@ -6,6 +6,8 @@ const initialState = {
   gasPrice: "0",  // BigNumber
 };
 
-export function transactionsReducer(state = initialState, action) {
+export function transactionReducer(state = initialState, action) {
   return state;
 }
+
+export default transactionReducer;

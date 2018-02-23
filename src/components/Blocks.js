@@ -14,6 +14,12 @@ export function Blocks(props) {
 }
 
 function BlockList(props) {
+  if (props.loading) {
+    return (
+      <div>Loading...</div>
+    );
+  }
+
   if (props.blocks.length === 0) return null;
   return (
     <div>
@@ -27,7 +33,10 @@ function Block(props) {
 }
 
 function mapState(state) {
-  return state;
+  return {
+    blocks: state.blocks.blocks,
+    loading: state.blocks.loading,
+  };
 }
 
 function mapDispatch(dispatch) {
