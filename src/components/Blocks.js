@@ -1,11 +1,16 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {loadBlocks, clear} from '../actions';
+import {
+  getBlocks,
+  loadBlocks,
+  clear
+} from '../actions';
 
 export function Blocks(props) {
   return (
     <div>
       <h3>Current Block: {props.latestBlock}</h3>
+      <button type="button" onClick={props.getBlocks} >Get Blocks</button>
       <button type="button" onClick={props.loadBlocks} >Load Demo Blocks</button>
       <button type="button" onClick={props.clear} >Clear</button>
       <BlockList {...props} />
@@ -35,12 +40,14 @@ function Block(props) {
 function mapState(state) {
   return {
     blocks: state.blocks.blocks,
+    latestBlock: state.blocks.latestBlock,
     loading: state.blocks.loading,
   };
 }
 
 function mapDispatch(dispatch) {
   return {
+    getBlocks: () => dispatch(getBlocks()),
     loadBlocks: () => dispatch(loadBlocks()),
     clear: () => dispatch(clear())
   }
