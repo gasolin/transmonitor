@@ -1,3 +1,4 @@
+import {BigNumber} from 'bignumber.js';
 import {
   CLEAR_BLOCKS,
   GET_BLOCKS,
@@ -48,11 +49,28 @@ export function blockReducer(state = initialState, action) {
       let latestBlock = state.latestBlock < number ?
         number : state.latestBlock;
       let blocks;
+      let totalTransactionsLength = action.payload.transactions.length;
+      // only save transaction with value
+      let valueTransactions = action.payload.transactions.filter(transaction => {
+        // transaction.value != "0");
+        let num = new BigNumber(transaction.value);
+        return num.isZero();
+      });
+      console.log('valid transactions: ', valueTransactions.length);
+
       let idx = state.blocks.findIndex(block => block.number === number);
       if (idx > -1) { // update
-        blocks = state.blocks.splice(idx, 1, {number});
+        blocks = state.blocks.splice(idx, 1, {
+          number,
+          totalTransactionsLength,
+          valueTransactions,
+        });
       } else { // new
-        blocks = [...state.blocks, {number}];
+        blocks = [...state.blocks, {
+          number,
+          totalTransactionsLength,
+          valueTransactions,
+        }];
       }
       return {
         ...state,

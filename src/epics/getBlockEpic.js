@@ -34,7 +34,7 @@ if (typeof web3 !== 'undefined') {
 //   });
 // });
 
-const observableWatchBlock = new Observable(observer => {
+const watchBlock$ = new Observable(observer => {
   let filter = web3.eth.filter('latest');
   filter.watch((error, result) => {
     if (error) observer.error(error);
@@ -54,10 +54,12 @@ const observableWatchBlock = new Observable(observer => {
 export function getBlockEpic(action$) {
   return action$
     .filter(action => action.type === GET_BLOCKS)
-    .switchMap(() => observableWatchBlock)
+    .switchMap(() => watchBlock$)
     // .switchMap(() => observableGetBlockNumber)
     // .switchMap(number => observableGetBlock(number))
-    .switchMap(block => Observable.of(saveBlock({number: block.number})));
+    .switchMap(block => {
+      return Observable.of(saveBlock(block));
+    });
     // .do(action => console.log(action))
     // .ignoreElements();
   }

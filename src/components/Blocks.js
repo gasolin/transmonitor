@@ -9,7 +9,7 @@ import {
 export function Blocks(props) {
   return (
     <div>
-      <h3>Current Block: {props.latestBlock}</h3>
+      <h3>Latest Block #{props.latestBlock}</h3>
       <button type="button" onClick={props.getBlocks} >Get Blocks</button>
       <button type="button" onClick={props.loadBlocks} >Load Demo Blocks</button>
       <button type="button" onClick={props.clear} >Clear</button>
@@ -28,13 +28,15 @@ function BlockList(props) {
   if (props.blocks.length === 0) return null;
   return (
     <div>
-      {props.blocks.map(item => <Block {...item} key={item.number} />)}
+      {props.blocks.sort((a, b) => b.number - a.number).map(item => <Block {...item} key={item.number} />)}
     </div>
   );
 }
 
 function Block(props) {
-  return <p>{props.number}</p>;
+  return (<div><h3>#{props.number}</h3>
+    <span>{props.valueTransactions.length}/{props.totalTransactionsLength}</span>
+  </div>);
 }
 
 function mapState(state) {
