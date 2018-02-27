@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Table} from 'reactstrap';
 import {ethWeb3} from '../web3connection';
+
 export function TransactionList(props) {
   if (props.blocks.length === 0 || !props.selectedBlock) return null;
   let idx = props.blocks.findIndex(block => block.number ===  props.selectedBlock);

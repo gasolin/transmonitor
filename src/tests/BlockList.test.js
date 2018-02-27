@@ -41,7 +41,7 @@ describe('BlockList', function() {
     selectBlock: () => {},
   };
 
-  it('renders without crashing while loading', () => {
+  it('renders without crashing when loading', () => {
     const div = document.createElement('div');
     ReactDOM.render(<BlockList {...mockPropsLoading} />, div);
     ReactDOM.unmountComponentAtNode(div);
