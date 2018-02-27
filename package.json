@@ -9,6 +9,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
+    "react-test-renderer": "^16.2.0",
     "reactstrap": "^5.0.0-beta",
     "redux": "^3.7.2",
     "redux-observable": "^0.18.0",

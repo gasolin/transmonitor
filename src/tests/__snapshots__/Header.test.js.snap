@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockList render correctly 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-dark bg-dark"
+>
+  <a
+    className="navbar-brand"
+    href="#transactions"
+  >
+    Transactions Monitor 
+    <span
+      className="badge badge-info"
+      onClick={[Function]}
+      tooltip="Latest Block"
+    >
+      #
+      123456
+    </span>
+  </a>
+</nav>
+`;
