@@ -14,7 +14,7 @@ if (typeof web3 !== 'undefined') {
   web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-// const observableGetBlockNumber = new Observable(observer => {
+// const getBlockNumber$ = new Observable(observer => {
 //   web3.eth.getBlockNumber((error, result) => {
 //     if (error) observer.erro(error);
 //     observer.next(result);
@@ -22,7 +22,7 @@ if (typeof web3 !== 'undefined') {
 //   });
 // });
 
-// const observableGetBlock = (number) => new Observable(observer => {
+// const getBlock$ = (number) => new Observable(observer => {
 //   console.log('fetching...', number)
 //   web3.eth.getBlock(number, true, (error, block) => {
 //     if (error) observer.error(error);
@@ -41,9 +41,6 @@ const watchBlock$ = new Observable(observer => {
     web3.eth.getBlock(result, true,  (error, block) => {
       if (error) observer.error(error);
       if (block) {
-        console.log('block #' + block.number);
-        console.log(`transactions: ${block.transactions.length}`);
-        // console.dir(block.transactions);
         observer.next(block);
         // observer.complete();
       }

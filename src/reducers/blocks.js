@@ -4,10 +4,12 @@ import {
   GET_BLOCKS,
   LOAD_BLOCKS,
   SAVE_BLOCK,
+  SELECT_BLOCK,
 } from "../actions";
 
 const initialState = {
-  latestBlock: "",
+  latestBlock: null,
+  selectedBlock: null,
   loading: false,
   blocks: [],
 };
@@ -46,28 +48,29 @@ export function blockReducer(state = initialState, action) {
       return initialState;
     case SAVE_BLOCK:
       let number = action.payload.number;
+      let timestamp = action.payload.timestamp;
       let latestBlock = state.latestBlock < number ?
         number : state.latestBlock;
       let blocks;
       let totalTransactionsLength = action.payload.transactions.length;
       // only save transaction with value
       let valueTransactions = action.payload.transactions.filter(transaction => {
-        // transaction.value != "0");
-        let num = new BigNumber(transaction.value);
-        return num.isZero();
+        let value = new BigNumber(transaction.value);
+        return !value.isZero();
       });
-      console.log('valid transactions: ', valueTransactions.length);
 
       let idx = state.blocks.findIndex(block => block.number === number);
       if (idx > -1) { // update
         blocks = state.blocks.splice(idx, 1, {
           number,
+          timestamp,
           totalTransactionsLength,
           valueTransactions,
         });
       } else { // new
         blocks = [...state.blocks, {
           number,
+          timestamp,
           totalTransactionsLength,
           valueTransactions,
         }];
@@ -77,6 +80,11 @@ export function blockReducer(state = initialState, action) {
         latestBlock,
         loading: false,
         blocks,
+      };
+    case SELECT_BLOCK:
+      return {
+        ...state,
+        selectedBlock: action.payload,
       };
     default:
       return state;
