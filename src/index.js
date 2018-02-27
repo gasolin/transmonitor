@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 import {configureStore} from './configureStore';
 import {getBlocks} from './actions';
 
@@ -15,7 +15,7 @@ ReactDOM.render(
      <App />
   </Provider>
   , document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
 
 window.addEventListener("load", () => {
   store.dispatch(getBlocks());

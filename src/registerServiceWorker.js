@@ -31,8 +31,6 @@ export default function register() {
 
     window.addEventListener('load', () => {
       const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
-      // correctly locate service-worker.js in github page
-      const swGhPageUrl = `${process.env.PUBLIC_URL}/transmonitor/service-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Lets check if a service worker still exists or not.
@@ -48,7 +46,7 @@ export default function register() {
         });
       } else {
         // Is not local host. Just register service worker
-        registerValidSW(swGhPageUrl);
+        registerValidSW(swUrl);
       }
     });
   }
