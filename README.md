@@ -1,4 +1,4 @@
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![travis](https://travis-ci.org/gasolin/transmonitor.svg?branch=master)](https://travis-ci.org/gasolin/transmonitor) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -31,7 +31,6 @@ my-app/
 `components/` contain all react components.
 `configureStore.js`, `actions` and `reducers` contain redux related codes.
 `epics/` contain redux-observable/rxjs codes to retrieve block information.
-
 
 ## Available Scripts
 
