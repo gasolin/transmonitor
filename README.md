@@ -20,12 +20,9 @@ my-app/
     epics/
     reducers/
     tests/
-    App.css
-    App.js
     configureStore.js
     index.css
     index.js
-    logo.svg
 ```
 
 `components/` contain all react components.
