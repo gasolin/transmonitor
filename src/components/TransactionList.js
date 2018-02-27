@@ -1,16 +1,7 @@
-/* global web3 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Web3 from 'web3';
 import {Table} from 'reactstrap';
-
-if (typeof web3 !== 'undefined') {
-  web3 = new Web3(web3.currentProvider);
-} else {
-  // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
-
+import {ethWeb3} from '../web3connection';
 export function TransactionList(props) {
   if (props.blocks.length === 0 || !props.selectedBlock) return null;
   let idx = props.blocks.findIndex(block => block.number ===  props.selectedBlock);
@@ -43,7 +34,7 @@ function Transaction(transaction) {
     <th><a href={`https://etherscan.io/tx/${transaction.hash}`} target="_blank">{format(transaction.hash)}</a></th>
     <th><a href={`https://etherscan.io/address/${transaction.from}`} target="_blank">{format(transaction.from)}</a></th>
     <th><a href={`https://etherscan.io/address/${transaction.to}`} target="_blank">{format(transaction.to)}</a></th>
-    <th>{web3.fromWei(transaction.value, 'ether').toString()} Ether</th>
+    <th>{ethWeb3.fromWei(transaction.value, 'ether').toString()} Ether</th>
   </tr>);
 }
 
