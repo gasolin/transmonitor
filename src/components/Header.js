@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Badge,
   Navbar,
@@ -15,5 +16,10 @@ export function Header(props) {
     </Navbar>
   );
 }
+
+Header.propTypes = {
+  latestBlock: PropTypes.number,
+  selectBlock: PropTypes.func.isRequired,
+};
 
 export default Header;

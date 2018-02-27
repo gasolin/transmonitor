@@ -1,5 +1,6 @@
 /* global web3 */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Web3 from 'web3';
 import {Table} from 'reactstrap';
 
@@ -13,7 +14,7 @@ if (typeof web3 !== 'undefined') {
 export function TransactionList(props) {
   if (props.blocks.length === 0 || !props.selectedBlock) return null;
   let idx = props.blocks.findIndex(block => block.number ===  props.selectedBlock);
-  if (props.selectedBlockidx === -1) return null;
+  if (idx === -1) return null;
   let sortedBlocks = props.blocks.sort((a, b) => b.number - a.number);
   return (<div id="transactions">
     <h3>Selected Block #{props.selectedBlock}</h3>
@@ -45,5 +46,10 @@ function Transaction(transaction) {
     <th>{web3.fromWei(transaction.value, 'ether').toString()} Ether</th>
   </tr>);
 }
+
+TransactionList.propTypes = {
+  blocks: PropTypes.array,
+  selectedBlock: PropTypes.number,
+};
 
 export default TransactionList;

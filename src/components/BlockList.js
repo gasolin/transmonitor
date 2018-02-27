@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Table} from 'reactstrap';
 
 let handleClick = (e, selectBlock) => {
@@ -41,5 +42,11 @@ function Block(block) {
     <th>{new Date(block.timestamp * 1000).toLocaleString()}</th>
   </tr>);
 }
+
+BlockList.propTypes = {
+  blocks: PropTypes.array,
+  loading: PropTypes.bool.isRequired,
+  selectBlock: PropTypes.func.isRequired,
+};
 
 export default BlockList;
