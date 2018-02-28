@@ -1,8 +1,6 @@
 import {BigNumber} from 'bignumber.js';
 import {
-  CLEAR_BLOCKS,
   GET_BLOCKS,
-  LOAD_BLOCKS,
   SAVE_BLOCK,
   SELECT_BLOCK,
 } from "../actions";
@@ -14,23 +12,6 @@ const initialState = {
   blocks: [],
 };
 
-// block
-// number, gasUsed, timestamp, transactions
-const default_blocks = [
-  {
-    number: 1234567,
-  },
-  {
-    number: 1234566,
-  },
-  {
-    number: 1234565,
-  },
-  {
-    number: 1234564,
-  }
-];
-
 export function blockReducer(state = initialState, action) {
   switch(action.type) {
     case GET_BLOCKS:
@@ -38,14 +19,6 @@ export function blockReducer(state = initialState, action) {
         ...state,
         loading: true,
       }
-    case LOAD_BLOCKS:
-      return {
-        latestBlock: default_blocks[0].number,
-        loading: false,
-        blocks: default_blocks,
-      };
-    case CLEAR_BLOCKS:
-      return initialState;
     case SAVE_BLOCK:
       let number = action.payload.number;
       let timestamp = action.payload.timestamp;

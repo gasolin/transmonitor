@@ -1,9 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-  clear,
   getBlocks,
-  loadBlocks,
   selectBlock,
 } from '../actions';
 import {Header} from './Header';
@@ -31,9 +29,7 @@ function mapState(state) {
 
 function mapDispatch(dispatch) {
   return {
-    clear: () => dispatch(clear()),
     getBlocks: () => dispatch(getBlocks()),
-    loadBlocks: () => dispatch(loadBlocks()),
     selectBlock: (block) => dispatch(selectBlock(block)),
   }
 }
