@@ -7,13 +7,15 @@ import {
 } from 'reactstrap';
 
 export function Header(props) {
-  let latestBlock = props.latestBlock ? (
-    <Badge color="info" tooltip="Latest Block" onClick={() => props.selectBlock(props.latestBlock)}>#{props.latestBlock}</Badge>
-  ): "";
-  return (
+  return props.latestBlock ? (
     <Navbar color="dark" dark expand="lg">
-      <NavbarBrand href="#transactions">Transactions Monitor {latestBlock}</NavbarBrand>
-    </Navbar>
+      <NavbarBrand href="#transactions" onClick={() => props.selectBlock(props.latestBlock)}>Transactions Monitor <Badge color="info" tooltip="Latest Block">#{props.latestBlock}</Badge>
+    </NavbarBrand>
+  </Navbar>
+  ): (
+  <Navbar color="dark" dark expand="lg">
+    <NavbarBrand href="#">Transactions Monitor</NavbarBrand>
+  </Navbar>
   );
 }
 

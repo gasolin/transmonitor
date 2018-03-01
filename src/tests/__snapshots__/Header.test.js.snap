@@ -7,11 +7,11 @@ exports[`BlockList render correctly 1`] = `
   <a
     className="navbar-brand"
     href="#transactions"
+    onClick={[Function]}
   >
     Transactions Monitor 
     <span
       className="badge badge-info"
-      onClick={[Function]}
       tooltip="Latest Block"
     >
       #
