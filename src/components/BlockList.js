@@ -19,23 +19,27 @@ export function BlockList(props) {
 
   if (props.blocks.length === 0) return null;
   return (
-    <Table bordered striped responsive>
+    <Table id="blocks" bordered striped responsive>
       <thead>
         <tr>
           <th>Block #</th>
           <th>Transactions (with value/total)</th>
+          <th>Timestamp</th>
         </tr>
       </thead>
       <tbody onClick={(e) => handleClick(e, props.selectBlock)}>
-      {props.blocks.sort((a, b) => b.number - a.number).map(block =>
-        <Block {...block} key={block.number}/>)}
+      {props.blocks.sort((a, b) => b.number - a.number).map(block => {
+        block.selected = block.number === props.selectedBlock;
+        return <Block {...block} key={block.number}/>
+      })}
       </tbody>
     </Table>
   );
 }
 
 function Block(block) {
-  return (<tr>
+  let selected = block.selected ? 'table-primary' : '';
+  return (<tr className={selected}>
     <th>{block.number}</th>
     <th><a href="#transactions" id={block.number}>{block.valueTransactions.length}</a> / {block.totalTransactionsLength}</th>
     <th>{new Date(block.timestamp * 1000).toLocaleString()}</th>

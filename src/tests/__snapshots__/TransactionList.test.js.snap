@@ -12,6 +12,16 @@ exports[`TransactionList render correctly 1`] = `
     1
      transactions with value
   </h5>
+  <a
+    href="#blocks"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ⬆
+    </span>
+    Back to Blocks list
+  </a>
   <div
     className="table-responsive"
   >
@@ -58,6 +68,16 @@ exports[`TransactionList render correctly 1`] = `
       </tbody>
     </table>
   </div>
+  <a
+    href="#blocks"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ⬆
+    </span>
+    Back to Blocks list
+  </a>
 </div>
 `;
 

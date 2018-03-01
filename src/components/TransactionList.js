@@ -11,6 +11,7 @@ export function TransactionList(props) {
   return (<div id="transactions">
     <h3>Block #{props.selectedBlock}</h3>
     <h5>{sortedBlocks[idx].valueTransactions.length} transactions with value</h5>
+    <a href="#blocks"><span aria-hidden="true">⬆</span>Back to Blocks list</a>
     <Table striped responsive>
       <thead>
         <tr>
@@ -24,6 +25,7 @@ export function TransactionList(props) {
       {sortedBlocks[idx].valueTransactions.map((transaction) => <Transaction {...transaction} key={transaction.hash} />)}
       </tbody>
     </Table>
+    <a href="#blocks"><span aria-hidden="true">⬆</span>Back to Blocks list</a>
   </div>);
 }
 
