@@ -32,7 +32,7 @@ describe('TransactionList', function() {
           value: new BigNumber('33000000000'),
         }],
         totalTransactionsLength: 4,
-        timestamp: 1519749108
+        timestamp: 1519748998
       },
       {
         number: 123457,
@@ -64,7 +64,7 @@ describe('TransactionList', function() {
           value: new BigNumber('1988327790000000000'),
         }],
         totalTransactionsLength: 6,
-        timestamp: 1519748998
+        timestamp: 1519749108
       },
     ],
     selectedBlock: 123457,

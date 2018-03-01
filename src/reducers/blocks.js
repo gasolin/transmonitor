@@ -24,13 +24,13 @@ export function blockReducer(state = initialState, action) {
       let timestamp = action.payload.timestamp;
       let latestBlock = state.latestBlock < number ?
         number : state.latestBlock;
-      let blocks;
       let totalTransactionsLength = action.payload.transactions.length;
       // only save transaction with value
       let valueTransactions = action.payload.transactions.filter(transaction => {
         let value = new BigNumber(transaction.value);
         return !value.isZero();
       });
+      let blocks;
 
       let idx = state.blocks.findIndex(block => block.number === number);
       if (idx > -1) { // update
