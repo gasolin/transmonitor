@@ -43,6 +43,7 @@ describe('reducers', () => {
 const firstSaveBlcok ={
   ...initBlockState,
   latestBlock: 123456,
+  selectedBlock: 123456,
   loading: false,
   blocks: [{
     number: 123456,
@@ -67,6 +68,7 @@ const firstSaveBlcok ={
 const secondSaveBlcok ={
   ...initBlockState,
   latestBlock: 123457,
+  selectedBlock: 123456,
   loading: false,
   blocks: [{
     number: 123456,

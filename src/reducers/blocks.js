@@ -22,8 +22,11 @@ export function blockReducer(state = initialState, action) {
     case SAVE_BLOCK:
       let number = action.payload.number;
       let timestamp = action.payload.timestamp;
+      // update latestBlock when there's a block with bigger number
       let latestBlock = state.latestBlock < number ?
         number : state.latestBlock;
+      // auto select latestBlock if selectedBlock does not exist
+      let selectedBlock = state.selectedBlock ? state.selectedBlock : latestBlock;
       let totalTransactionsLength = action.payload.transactions.length;
       // only save transaction with value
       let valueTransactions = action.payload.transactions.filter(transaction => {
@@ -50,9 +53,10 @@ export function blockReducer(state = initialState, action) {
       }
       return {
         ...state,
+        blocks,
         latestBlock,
         loading: false,
-        blocks,
+        selectedBlock,
       };
     case SELECT_BLOCK:
       return {
