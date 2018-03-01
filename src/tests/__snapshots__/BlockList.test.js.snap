@@ -1,84 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BlockList render correctly 1`] = `
-<table
-  className="table"
+<div
+  className="table-responsive"
 >
-  <thead>
-    <tr>
-      <th>
-        Block #
-      </th>
-      <th>
-        Transactions with value
-      </th>
-      <th>
-        Transactions
-      </th>
-    </tr>
-  </thead>
-  <tbody
-    onClick={[Function]}
+  <table
+    className="table table-bordered table-striped"
   >
-    <tr>
-      <th>
-        123458
-      </th>
-      <th>
-        <a
-          href="#transactions"
-          id={123458}
-        >
-          3
-        </a>
-      </th>
-      <th>
-        6
-      </th>
-      <th>
-        2018-2-28 00:29:58
-      </th>
-    </tr>
-    <tr>
-      <th>
-        123457
-      </th>
-      <th>
-        <a
-          href="#transactions"
-          id={123457}
-        >
-          1
-        </a>
-      </th>
-      <th>
-        5
-      </th>
-      <th>
-        2018-2-28 00:30:08
-      </th>
-    </tr>
-    <tr>
-      <th>
-        123456
-      </th>
-      <th>
-        <a
-          href="#transactions"
-          id={123456}
-        >
-          2
-        </a>
-      </th>
-      <th>
-        4
-      </th>
-      <th>
-        2018-2-28 00:31:48
-      </th>
-    </tr>
-  </tbody>
-</table>
+    <thead>
+      <tr>
+        <th>
+          Block #
+        </th>
+        <th>
+          Transactions (with value/total)
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      onClick={[Function]}
+    >
+      <tr>
+        <th>
+          123458
+        </th>
+        <th>
+          <a
+            href="#transactions"
+            id={123458}
+          >
+            3
+          </a>
+           / 
+          6
+        </th>
+        <th>
+          2018-2-28 00:31:48
+        </th>
+      </tr>
+      <tr>
+        <th>
+          123457
+        </th>
+        <th>
+          <a
+            href="#transactions"
+            id={123457}
+          >
+            1
+          </a>
+           / 
+          5
+        </th>
+        <th>
+          2018-2-28 00:30:08
+        </th>
+      </tr>
+      <tr>
+        <th>
+          123456
+        </th>
+        <th>
+          <a
+            href="#transactions"
+            id={123456}
+          >
+            2
+          </a>
+           / 
+          4
+        </th>
+        <th>
+          2018-2-28 00:29:58
+        </th>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
 
 exports[`BlockList render null when no blocks 1`] = `null`;

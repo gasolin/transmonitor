@@ -5,12 +5,13 @@ import {ethWeb3} from '../web3connection';
 
 export function TransactionList(props) {
   if (props.blocks.length === 0 || !props.selectedBlock) return null;
-  let idx = props.blocks.findIndex(block => block.number ===  props.selectedBlock);
-  if (idx === -1) return null;
   let sortedBlocks = props.blocks.sort((a, b) => b.number - a.number);
+  let idx = sortedBlocks.findIndex(block => block.number ===  props.selectedBlock);
+  if (idx === -1) return null;
   return (<div id="transactions">
-    <h3>Selected Block #{props.selectedBlock}</h3>
-    <Table>
+    <h3>Block #{props.selectedBlock}</h3>
+    <h5>{sortedBlocks[idx].valueTransactions.length} transactions with value</h5>
+    <Table striped responsive>
       <thead>
         <tr>
           <th>hash #</th>
@@ -20,7 +21,7 @@ export function TransactionList(props) {
         </tr>
       </thead>
       <tbody>
-      {sortedBlocks[idx].valueTransactions.map(transaction => <Transaction {...transaction} key={transaction.hash} />)}
+      {sortedBlocks[idx].valueTransactions.map((transaction) => <Transaction {...transaction} key={transaction.hash} />)}
       </tbody>
     </Table>
   </div>);
@@ -33,8 +34,8 @@ function format(text) {
 function Transaction(transaction) {
   return (<tr>
     <th><a href={`https://etherscan.io/tx/${transaction.hash}`} target="_blank">{format(transaction.hash)}</a></th>
-    <th><a href={`https://etherscan.io/address/${transaction.from}`} target="_blank">{format(transaction.from)}</a></th>
-    <th><a href={`https://etherscan.io/address/${transaction.to}`} target="_blank">{format(transaction.to)}</a></th>
+    <th>{format(transaction.from)}</th>
+    <th>{format(transaction.to)}</th>
     <th>{ethWeb3.fromWei(transaction.value, 'ether').toString()} Ether</th>
   </tr>);
 }

@@ -5,61 +5,59 @@ exports[`TransactionList render correctly 1`] = `
   id="transactions"
 >
   <h3>
-    Selected Block #
+    Block #
     123457
   </h3>
-  <table
-    className="table"
+  <h5>
+    1
+     transactions with value
+  </h5>
+  <div
+    className="table-responsive"
   >
-    <thead>
-      <tr>
-        <th>
-          hash #
-        </th>
-        <th>
-          from
-        </th>
-        <th>
-          to
-        </th>
-        <th>
-          value
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>
-          <a
-            href="https://etherscan.io/tx/0xdd00f5aaae1af883e40098c927a6a8dc230b941654c3a2a5d9ad4c79f79c558a"
-            target="_blank"
-          >
-            0xdd00f5aaae1af88...
-          </a>
-        </th>
-        <th>
-          <a
-            href="https://etherscan.io/address/0x68b1a89523b7ed11f499f36ba266c688401cdbc1"
-            target="_blank"
-          >
+    <table
+      className="table table-striped"
+    >
+      <thead>
+        <tr>
+          <th>
+            hash #
+          </th>
+          <th>
+            from
+          </th>
+          <th>
+            to
+          </th>
+          <th>
+            value
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>
+            <a
+              href="https://etherscan.io/tx/0xdd00f5aaae1af883e40098c927a6a8dc230b941654c3a2a5d9ad4c79f79c558a"
+              target="_blank"
+            >
+              0xdd00f5aaae1af88...
+            </a>
+          </th>
+          <th>
             0x68b1a89523b7ed1...
-          </a>
-        </th>
-        <th>
-          <a
-            href="https://etherscan.io/address/0x8ad76a1bef25cd903b8c1de72af6d2eb30218c95"
-            target="_blank"
-          >
+          </th>
+          <th>
             0x8ad76a1bef25cd9...
-          </a>
-        </th>
-        <th>
-          0.19988903
-           Ether
-        </th>
-      </tr>
-    </tbody>
-  </table>
+          </th>
+          <th>
+            0.19988903
+             Ether
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 `;
 

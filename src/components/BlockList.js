@@ -19,12 +19,11 @@ export function BlockList(props) {
 
   if (props.blocks.length === 0) return null;
   return (
-    <Table>
+    <Table bordered striped responsive>
       <thead>
         <tr>
           <th>Block #</th>
-          <th>Transactions with value</th>
-          <th>Transactions</th>
+          <th>Transactions (with value/total)</th>
         </tr>
       </thead>
       <tbody onClick={(e) => handleClick(e, props.selectBlock)}>
@@ -38,8 +37,7 @@ export function BlockList(props) {
 function Block(block) {
   return (<tr>
     <th>{block.number}</th>
-    <th><a href="#transactions" id={block.number}>{block.valueTransactions.length}</a></th>
-    <th>{block.totalTransactionsLength}</th>
+    <th><a href="#transactions" id={block.number}>{block.valueTransactions.length}</a> / {block.totalTransactionsLength}</th>
     <th>{new Date(block.timestamp * 1000).toLocaleString()}</th>
   </tr>);
 }
