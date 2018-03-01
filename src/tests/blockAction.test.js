@@ -3,9 +3,9 @@ import * as actions from '../actions/index';
 describe('actions', () => {
   it('should create an action to get latest blocks', () => {
     const expectedAction = {
-      type: actions.GET_BLOCKS
+      type: actions.WATCH_BLOCKS
     }
-    expect(actions.getBlocks()).toEqual(expectedAction);
+    expect(actions.watchBlocks()).toEqual(expectedAction);
   });
 
   it('should create an action to save block to store', () => {

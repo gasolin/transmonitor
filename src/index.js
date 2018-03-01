@@ -6,7 +6,7 @@ import App from './components/App';
 import {Provider} from 'react-redux';
 // import registerServiceWorker from './registerServiceWorker';
 import {configureStore} from './configureStore';
-import {getBlocks} from './actions';
+import {watchBlocks} from './actions';
 
 const store = configureStore();
 
@@ -18,5 +18,5 @@ ReactDOM.render(
 // registerServiceWorker();
 
 window.addEventListener("load", () => {
-  store.dispatch(getBlocks());
+  store.dispatch(watchBlocks());
 });

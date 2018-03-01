@@ -1,9 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {
-  getBlocks,
-  selectBlock,
-} from '../actions';
+import {selectBlock} from '../actions';
 import {Header} from './Header';
 import {BlockList} from './BlockList';
 import {TransactionList} from './TransactionList';
@@ -29,7 +26,6 @@ function mapState(state) {
 
 function mapDispatch(dispatch) {
   return {
-    getBlocks: () => dispatch(getBlocks()),
     selectBlock: (block) => dispatch(selectBlock(block)),
   }
 }

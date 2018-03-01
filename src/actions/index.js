@@ -1,13 +1,13 @@
-export const GET_BLOCKS = "GET_BLOCKS";
-export const SAVE_BLOCK = "SAVE_BLOCK";
-export const SELECT_BLOCK = "SELECT_BLOCK";
+export const SAVE_BLOCK = 'SAVE_BLOCK';
+export const SELECT_BLOCK = 'SELECT_BLOCK';
+export const WATCH_BLOCKS = 'WATCH_BLOCKS';
 
 /**
  * Create an action to get latest blocks.
  */
-export function getBlocks() {
+export function watchBlocks() {
   return {
-    type: GET_BLOCKS
+    type: WATCH_BLOCKS
   }
 }
 

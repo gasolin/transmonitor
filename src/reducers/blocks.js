@@ -1,6 +1,6 @@
 import {BigNumber} from 'bignumber.js';
 import {
-  GET_BLOCKS,
+  WATCH_BLOCKS,
   SAVE_BLOCK,
   SELECT_BLOCK,
 } from "../actions";
@@ -15,7 +15,7 @@ const initialState = {
 
 export function blockReducer(state = initialState, action) {
   switch(action.type) {
-    case GET_BLOCKS:
+    case WATCH_BLOCKS:
       return {
         ...state,
         loading: true,

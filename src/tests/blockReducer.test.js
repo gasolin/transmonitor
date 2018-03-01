@@ -15,11 +15,11 @@ describe('reducers', () => {
     expect(blockReducer(undefined, {})).toEqual(initBlockState);
   })
 
-  it('should handle GET_BLOCKS', () => {
+  it('should handle WATCH_BLOCKS', () => {
     expect(blockReducer(
       undefined,
       {
-        type: types.GET_BLOCKS
+        type: types.WATCH_BLOCKS
       }
     )).toEqual({
       ...initBlockState,
