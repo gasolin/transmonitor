@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Table} from 'reactstrap';
+import Loading from '../loading-bubbles.svg';
 
 let handleClick = (e, selectBlock) => {
   // should not prevent default here since we want to jump to the top of
@@ -13,7 +14,7 @@ let handleClick = (e, selectBlock) => {
 export function BlockList(props) {
   if (props.loading) {
     return (
-      <div>Loading...</div>
+      <div><img src={Loading} alt="Loading..."/></div>
     );
   }
 
