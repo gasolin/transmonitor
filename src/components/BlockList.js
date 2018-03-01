@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {Table} from 'reactstrap';
 
 let handleClick = (e, selectBlock) => {
-  e.preventDefault();
+  // should not prevent default here since we want to jump to the top of
+  // transactions list with the html anchor
   if (e.target.id) {
     selectBlock(parseInt(e.target.id, 10));
   }
