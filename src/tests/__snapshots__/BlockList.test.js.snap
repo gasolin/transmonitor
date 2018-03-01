@@ -31,14 +31,16 @@ exports[`BlockList render correctly 1`] = `
           123458
         </th>
         <th>
-          <a
-            href="#transactions"
-            id={123458}
-          >
-            3
-          </a>
-           / 
-          6
+          <span>
+            <a
+              href="#transactions"
+              id={123458}
+            >
+              3
+            </a>
+             / 
+            6
+          </span>
         </th>
         <th>
           2018-2-28 00:31:48
@@ -51,14 +53,16 @@ exports[`BlockList render correctly 1`] = `
           123457
         </th>
         <th>
-          <a
-            href="#transactions"
-            id={123457}
-          >
-            1
-          </a>
-           / 
-          5
+          <span>
+            <a
+              href="#transactions"
+              id={123457}
+            >
+              1
+            </a>
+             / 
+            5
+          </span>
         </th>
         <th>
           2018-2-28 00:30:08
@@ -71,14 +75,16 @@ exports[`BlockList render correctly 1`] = `
           123456
         </th>
         <th>
-          <a
-            href="#transactions"
-            id={123456}
-          >
-            2
-          </a>
-           / 
-          4
+          <span>
+            <a
+              href="#transactions"
+              id={123456}
+            >
+              2
+            </a>
+             / 
+            4
+          </span>
         </th>
         <th>
           2018-2-28 00:29:58

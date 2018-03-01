@@ -29,7 +29,7 @@ export function BlockList(props) {
         </tr>
       </thead>
       <tbody onClick={(e) => handleClick(e, props.selectBlock)}>
-      {props.blocks.sort((a, b) => b.number - a.number).map(block => {
+      {props.blocks.map(block => {
         block.selected = block.number === props.selectedBlock;
         return <Block {...block} key={block.number}/>
       })}
@@ -40,10 +40,15 @@ export function BlockList(props) {
 
 function Block(block) {
   let selected = block.selected ? 'table-primary' : '';
+  let transactions = block.totalTransactionsLength ? (<span>
+    <a href="#transactions" id={block.number}>
+    {block.valueTransactions.length}</a> / {block.totalTransactionsLength}
+  </span>
+  ) : (<span>...</span>);
   return (<tr className={selected}>
     <th>{block.number}</th>
-    <th><a href="#transactions" id={block.number}>{block.valueTransactions.length}</a> / {block.totalTransactionsLength}</th>
-    <th>{new Date(block.timestamp * 1000).toLocaleString()}</th>
+    <th>{transactions}</th>
+    <th>{block.timestamp ? new Date(block.timestamp * 1000).toLocaleString() : ''}</th>
   </tr>);
 }
 

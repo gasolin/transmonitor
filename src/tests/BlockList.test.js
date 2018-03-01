@@ -19,10 +19,10 @@ describe('BlockList', function() {
   let mockProps = {
     blocks: [
       {
-        number: 123456,
-        valueTransactions: [{}, {}],
-        totalTransactionsLength: 4,
-        timestamp: 1519748998
+        number: 123458,
+        valueTransactions: [{}, {}, {}],
+        totalTransactionsLength: 6,
+        timestamp: 1519749108
       },
       {
         number: 123457,
@@ -31,10 +31,10 @@ describe('BlockList', function() {
         timestamp: 1519749008
       },
       {
-        number: 123458,
-        valueTransactions: [{}, {}, {}],
-        totalTransactionsLength: 6,
-        timestamp: 1519749108
+        number: 123456,
+        valueTransactions: [{}, {}],
+        totalTransactionsLength: 4,
+        timestamp: 1519748998
       },
     ],
     loading: false,

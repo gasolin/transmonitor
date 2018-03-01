@@ -7,6 +7,7 @@ const initBlockState = {
   selectedBlock: null,
   loading: false,
   blocks: [],
+  blocksLimit: 10,
 };
 
 describe('reducers', () => {
@@ -62,6 +63,42 @@ const firstSaveBlcok ={
         value: new BigNumber('33000000000'),
       }
     ],
+  },
+  {
+    number: 123455,
+    transactions: [],
+  },
+  {
+    number: 123454,
+    transactions: [],
+  },
+  {
+    number: 123453,
+    transactions: [],
+  },
+  {
+    number: 123452,
+    transactions: [],
+  },
+  {
+    number: 123451,
+    transactions: [],
+  },
+  {
+    number: 123450,
+    transactions: [],
+  },
+  {
+    number: 123449,
+    transactions: [],
+  },
+  {
+    number: 123448,
+    transactions: [],
+  },
+  {
+    number: 123447,
+    transactions: [],
   }]
 };
 
@@ -70,7 +107,18 @@ const secondSaveBlcok ={
   latestBlock: 123457,
   selectedBlock: 123456,
   loading: false,
-  blocks: [{
+  blocks: [  {
+    number: 123457,
+    timestamp: 1519749108,
+    totalTransactionsLength: 2,
+    valueTransactions: [{
+      hash: '0xdd00f5aaae1af883e40098c927a6a8dc230b941654c3a2a5d9ad4c79f79c558a',
+      from: '0x68b1a89523b7ed11f499f36ba266c688401cdbc1',
+      to: '0x8ad76a1bef25cd903b8c1de72af6d2eb30218c95',
+      value: new BigNumber('199889030000000000'),
+    }],
+  },
+  {
     number: 123456,
     timestamp: 1519749008,
     totalTransactionsLength: 3,
@@ -89,15 +137,36 @@ const secondSaveBlcok ={
     ],
   },
   {
-    number: 123457,
-    timestamp: 1519749108,
-    totalTransactionsLength: 2,
-    valueTransactions: [{
-      hash: '0xdd00f5aaae1af883e40098c927a6a8dc230b941654c3a2a5d9ad4c79f79c558a',
-      from: '0x68b1a89523b7ed11f499f36ba266c688401cdbc1',
-      to: '0x8ad76a1bef25cd903b8c1de72af6d2eb30218c95',
-      value: new BigNumber('199889030000000000'),
-    }],
+    number: 123455,
+    transactions: [],
+  },
+  {
+    number: 123454,
+    transactions: [],
+  },
+  {
+    number: 123453,
+    transactions: [],
+  },
+  {
+    number: 123452,
+    transactions: [],
+  },
+  {
+    number: 123451,
+    transactions: [],
+  },
+  {
+    number: 123450,
+    transactions: [],
+  },
+  {
+    number: 123449,
+    transactions: [],
+  },
+  {
+    number: 123448,
+    transactions: [],
   }]
 };
 
