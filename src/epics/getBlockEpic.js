@@ -26,6 +26,6 @@ export function getBlockEpic(action$) {
     .switchMap(block => Observable.of(saveBlock(block)));
     // .do(action => console.log(action))
     // .ignoreElements();
-  }
+}
 
 export default getBlockEpic;
