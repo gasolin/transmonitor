@@ -8,9 +8,10 @@ export function TransactionList(props) {
   let sortedBlocks = props.blocks.sort((a, b) => b.number - a.number);
   let idx = sortedBlocks.findIndex(block => block.number ===  props.selectedBlock);
   if (idx === -1) return null;
+  let transactions = sortedBlocks[idx].valueTransactions;
   return (<div id="transactions">
     <h3>Block #{props.selectedBlock}</h3>
-    <h5>{sortedBlocks[idx].valueTransactions.length} transactions with value</h5>
+    <h5>{transactions.length} transactions with value</h5>
     <a href="#blocks"><span aria-hidden="true">⬆</span>Back to Blocks list</a>
     <Table bordered striped hover responsive size="sm">
       <caption>List of transactions with value in a selected block</caption>
@@ -23,7 +24,7 @@ export function TransactionList(props) {
         </tr>
       </thead>
       <tbody>
-      {sortedBlocks[idx].valueTransactions.map((transaction) => <Transaction {...transaction} key={transaction.hash} />)}
+      {transactions.map((transaction) => <Transaction {...transaction} key={transaction.hash} />)}
       </tbody>
     </Table>
     <a href="#blocks"><span aria-hidden="true">⬆</span>Back to Blocks list</a>

@@ -13,11 +13,11 @@ describe('BlockList', function() {
     const div = document.createElement('div');
     ReactDOM.render(<Header {...mockProps} />, div);
     ReactDOM.unmountComponentAtNode(div);
-  })
+  });
 
   it('render correctly', () => {
     const component = renderer.create(<Header {...mockProps} />);
     let tree = component.toJSON();
     expect(tree).toMatchSnapshot();
-  })
+  });
 });

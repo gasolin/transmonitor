@@ -11,7 +11,7 @@ export const UPDATE_BLOCK = 'UPDATE_BLOCK';
 export function watchBlocks() {
   return {
     type: WATCH_BLOCKS
-  }
+  };
 }
 
 /**
@@ -20,7 +20,7 @@ export function watchBlocks() {
 export function quicklyGetBlock() {
   return {
     type: QUICKLY_GET_BLOCK
-  }
+  };
 }
 
 /**
@@ -31,7 +31,7 @@ export function getBlock(payload) {
   return {
     type: GET_BLOCK,
     payload,
-  }
+  };
 }
 
 /**
@@ -42,7 +42,7 @@ export function saveBlock(payload) {
   return {
     type: SAVE_BLOCK,
     payload,
-  }
+  };
 }
 
 /**
@@ -53,7 +53,7 @@ export function updateBlock(payload) {
   return {
     type: UPDATE_BLOCK,
     payload,
-  }
+  };
 }
 
 /**
@@ -64,5 +64,5 @@ export function selectBlock(payload) {
   return {
     type: SELECT_BLOCK,
     payload,
-  }
+  };
 }
