@@ -3,11 +3,14 @@ import PropTypes from 'prop-types';
 import {Table} from 'reactstrap';
 import Loading from '../loading-bubbles.svg';
 
-let handleClick = (e, selectBlock) => {
+let handleClick = (e, props) => {
   // should not prevent default here since we want to jump to the top of
   // transactions list with the html anchor
   if (e.target.id) {
-    selectBlock(parseInt(e.target.id, 10));
+    props.selectBlock(parseInt(e.target.id, 10));
+  }
+  if (e.target.dataset.block) {
+    props.getBlock(parseInt(e.target.dataset.block, 10));
   }
 };
 
@@ -29,7 +32,7 @@ export function BlockList(props) {
           <th>Timestamp</th>
         </tr>
       </thead>
-      <tbody onClick={(e) => handleClick(e, props.selectBlock)}>
+      <tbody onClick={(e) => handleClick(e, props)}>
       {props.blocks.map(block => {
         block.selected = block.number === props.selectedBlock;
         return <Block {...block} key={block.number}/>
@@ -41,13 +44,17 @@ export function BlockList(props) {
 
 function Block(block) {
   let selected = block.selected ? 'table-primary' : '';
+  let blockNumber = block.totalTransactionsLength ? (<span>{block.number}</span>) :
+  (<span>
+    <a href="#blocks" data-block={block.number}>{block.number}</a>
+  </span>);
   let transactions = block.totalTransactionsLength ? (<span>
     <a href="#transactions" id={block.number}>
     {block.valueTransactions.length}</a> / {block.totalTransactionsLength}
   </span>
   ) : (<span>...</span>);
   return (<tr className={selected}>
-    <th>{block.number}</th>
+    <th>{blockNumber}</th>
     <th>{transactions}</th>
     <th>{block.timestamp ? new Date(block.timestamp * 1000).toLocaleString() : ''}</th>
   </tr>);
@@ -55,6 +62,7 @@ function Block(block) {
 
 BlockList.propTypes = {
   blocks: PropTypes.array,
+  getBlock: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   selectBlock: PropTypes.func.isRequired,
 };

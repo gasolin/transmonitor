@@ -1,8 +1,11 @@
 import {BigNumber} from 'bignumber.js';
 import {
-  WATCH_BLOCKS,
+  GET_BLOCK,
+  QUICKLY_GET_BLOCK,
   SAVE_BLOCK,
   SELECT_BLOCK,
+  UPDATE_BLOCK,
+  WATCH_BLOCKS,
 } from "../actions";
 
 const initialState = {
@@ -37,24 +40,14 @@ export function blockReducer(state = initialState, action) {
       });
       let blocks;
 
-      let idx = state.blocks.findIndex(block => block.number === number);
-      if (idx > -1) { // update
-        blocks = state.blocks.splice(idx, 1, {
-          number,
-          timestamp,
-          totalTransactionsLength,
-          valueTransactions,
-        });
-      } else { // new
-        // insert new entry from head
-        blocks = [{
-          number,
-          timestamp,
-          totalTransactionsLength,
-          valueTransactions,
-        },
-        ...state.blocks];
-      }
+      // insert new entry from head
+      blocks = [{
+        number,
+        timestamp,
+        totalTransactionsLength,
+        valueTransactions,
+      },
+      ...state.blocks];
 
       // run at first time to stuff mock blocks
       if (blocks.length < BLOCKS_LIMIT) {
@@ -92,6 +85,37 @@ export function blockReducer(state = initialState, action) {
         ...state,
         selectedBlock: action.payload,
       };
+    case QUICKLY_GET_BLOCK:
+      return state;
+    case GET_BLOCK:
+      return state;
+    case UPDATE_BLOCK:
+      let num = action.payload.number;
+      let updateIdx = state.blocks.findIndex(block => block.number === num);
+      if (updateIdx > -1) { // update
+        let timestamp = action.payload.timestamp;
+        let totalTransactionsLength = action.payload.transactions.length;
+        // only save transaction with value
+        let valueTransactions = action.payload.transactions.filter(transaction => {
+          let value = new BigNumber(transaction.value);
+          return !value.isZero();
+        });
+        state.blocks.splice(updateIdx, 1, {
+          number: num,
+          timestamp,
+          totalTransactionsLength,
+          valueTransactions,
+        });
+        let blocks = state.blocks;
+        return {
+          ...state,
+          blocks,
+          loading: false,
+          selectedBlock: num,
+        };
+      } else {
+        return state;
+      }
     default:
       return state;
   }

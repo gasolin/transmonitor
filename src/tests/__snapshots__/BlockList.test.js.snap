@@ -31,7 +31,9 @@ exports[`BlockList render correctly 1`] = `
         className=""
       >
         <th>
-          123458
+          <span>
+            123458
+          </span>
         </th>
         <th>
           <span>
@@ -53,7 +55,9 @@ exports[`BlockList render correctly 1`] = `
         className=""
       >
         <th>
-          123457
+          <span>
+            123457
+          </span>
         </th>
         <th>
           <span>
@@ -75,7 +79,9 @@ exports[`BlockList render correctly 1`] = `
         className=""
       >
         <th>
-          123456
+          <span>
+            123456
+          </span>
         </th>
         <th>
           <span>

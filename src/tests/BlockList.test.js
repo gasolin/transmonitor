@@ -5,12 +5,14 @@ import BlockList from '../components/BlockList';
 
 describe('BlockList', function() {
   let mockPropsLoading = {
+    getBlock: () => {},
     loading: true,
     selectBlock: () => {},
   };
 
   let mockPropsNoBlock = {
     blocks: [],
+    getBlock: () => {},
     loading: false,
     selectBlock: () => {},
   };
@@ -37,6 +39,7 @@ describe('BlockList', function() {
         timestamp: 1519748998
       },
     ],
+    getBlock: () => {},
     loading: false,
     selectBlock: () => {},
   };
