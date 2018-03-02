@@ -1,6 +1,6 @@
-import {combineReducers} from 'redux';
-import {blockReducer} from './blocks';
+import {combineReducers} from 'redux'
+import {blockReducer} from './blocks'
 
 export default combineReducers({
-  blocks: blockReducer,
-});
+  blocks: blockReducer
+})

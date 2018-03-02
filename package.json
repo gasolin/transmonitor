@@ -19,13 +19,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "standard && react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "homepage": "https://gasolin.github.io/transmonitor",
   "devDependencies": {
     "cz-gitmoji-changelog": "^1.1.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "standard": "^11.0.0"
   },
   "config": {
     "commitizen": {
