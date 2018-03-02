@@ -20,7 +20,7 @@ export function BlockList(props) {
 
   if (props.blocks.length === 0) return null;
   return (
-    <Table id="blocks" bordered striped responsive>
+    <Table id="blocks" bordered striped hover responsive>
       <thead>
         <tr>
           <th>Block #</th>

@@ -12,7 +12,7 @@ export function TransactionList(props) {
     <h3>Block #{props.selectedBlock}</h3>
     <h5>{sortedBlocks[idx].valueTransactions.length} transactions with value</h5>
     <a href="#blocks"><span aria-hidden="true">⬆</span>Back to Blocks list</a>
-    <Table striped responsive>
+    <Table striped hover responsive>
       <thead>
         <tr>
           <th>hash #</th>
