@@ -3,10 +3,10 @@ import {connect} from 'react-redux';
 import {
   getBlock,
   selectBlock,
-} from '../actions';
-import {Header} from './Header';
-import {BlockList} from './BlockList';
-import {TransactionList} from './TransactionList';
+} from './actions';
+import {Header} from './components/Header';
+import {BlockList} from './components/BlockList';
+import {TransactionList} from './components/TransactionList';
 
 export function App(props) {
   return (
