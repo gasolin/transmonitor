@@ -23,11 +23,24 @@ my-app/
     configureStore.js
     index.css
     index.js
+    web3connection.js
 ```
 
-`components/` contain all react components.
-`configureStore.js`, `actions` and `reducers` contain redux related codes.
-`epics/` contain redux-observable/rxjs codes to retrieve block information.
+* `components/` contain all react components and `src/components/App.js` is the entry point.
+* `configureStore.js`, `actions` and `reducers` contain `redux` related codes.
+* `epics/` contain `redux-observable/rxjs` codes to retrieve block information.
+* `web3` connection is wrapped in `web3connection.js`
+* `tests/` covers
+  - per component tests via snapshot testing
+  - action and reducer unit test
+
+The project also use
+
+* Loading svg icon from https://github.com/jxnblk/loading/
+* Bootstrap theme from [bootstrap](http://getbootstrap.com) and [reactstrap](https://reactstrap.github.io)
+* **auto deploy** latest commits to github page via [ghpage-auto-deploy](https://github.com/gasolin/ghpage-auto-deploy) (my project).
+* [EditorConfig](http://editorconfig.org/) to maintain consistent coding style
+* Follows [gitemoji](https://gitmoji.carloscuesta.me/) (meaningful commit emoji messages) commit log  for fun
 
 ## Available Scripts
 
