@@ -5,9 +5,12 @@ exports[`BlockList render correctly 1`] = `
   className="table-responsive"
 >
   <table
-    className="table table-bordered table-striped"
+    className="table table-sm table-bordered table-striped table-hover"
     id="blocks"
   >
+    <caption>
+      List of blocks
+    </caption>
     <thead>
       <tr>
         <th>

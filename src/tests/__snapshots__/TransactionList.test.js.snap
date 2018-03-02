@@ -26,8 +26,11 @@ exports[`TransactionList render correctly 1`] = `
     className="table-responsive"
   >
     <table
-      className="table table-striped"
+      className="table table-sm table-bordered table-striped table-hover"
     >
+      <caption>
+        List of transactions with value in a selected block
+      </caption>
       <thead>
         <tr>
           <th>
@@ -51,14 +54,14 @@ exports[`TransactionList render correctly 1`] = `
               href="https://etherscan.io/tx/0xdd00f5aaae1af883e40098c927a6a8dc230b941654c3a2a5d9ad4c79f79c558a"
               target="_blank"
             >
-              0xdd00f5aaae1af88...
+              0xdd00f...
             </a>
           </th>
           <th>
-            0x68b1a89523b7ed1...
+            0x68b1a...
           </th>
           <th>
-            0x8ad76a1bef25cd9...
+            0x8ad76...
           </th>
           <th>
             0.19988903
