@@ -1,25 +1,12 @@
 import {Observable} from 'rxjs';
-import {ethWeb3} from '../web3connection';
+import {
+  getBlock$,
+  getBlockNumber$,
+} from './web3wrap';
 import {
   QUICKLY_GET_BLOCK,
   saveBlock,
 } from '../actions';
-
-const getBlockNumber$ = new Observable(observer => {
-  ethWeb3.eth.getBlockNumber((error, result) => {
-    if (error) observer.erro(error);
-    observer.next(result);
-    observer.complete();
-  });
-});
-
-const getBlock$ = (number) => new Observable(observer => {
-  ethWeb3.eth.getBlock(number, true, (error, block) => {
-    if (error) observer.error(error);
-    observer.next(block);
-    observer.complete();
-  });
-});
 
 /**
  * Quickly get something to show.

@@ -1,23 +1,9 @@
 import {Observable} from 'rxjs';
-import {ethWeb3} from '../web3connection';
+import {watchBlocks$} from './web3wrap';
 import {
   WATCH_BLOCKS,
   saveBlock,
 } from '../actions';
-
-const watchBlocks$ = new Observable(observer => {
-  let filter = ethWeb3.eth.filter('latest');
-  filter.watch((error, result) => {
-    if (error) observer.error(error);
-    ethWeb3.eth.getBlock(result, true,  (error, block) => {
-      if (error) observer.error(error);
-      if (block) {
-        observer.next(block);
-        // observer.complete();
-      }
-    });
-  });
-});
 
 export function watchBlocksEpic(action$) {
   return action$
