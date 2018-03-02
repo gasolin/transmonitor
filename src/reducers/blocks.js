@@ -61,7 +61,7 @@ export function blockReducer(state = initialState, action) {
       } else if (blocks.length > BLOCKS_LIMIT) {
         // only show recent 10 blocks + selected block
         let tempSelectedBlock = undefined;
-        if (latestBlock - selectedBlock > BLOCKS_LIMIT) {
+        if (latestBlock - selectedBlock > BLOCKS_LIMIT - 1) {
           let selectedBlockIdx = blocks.findIndex(block => block.number === selectedBlock);
           if (selectedBlockIdx > -1 && selectedBlockIdx > BLOCKS_LIMIT - 1) {
             tempSelectedBlock = blocks[selectedBlockIdx];

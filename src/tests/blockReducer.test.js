@@ -7,6 +7,7 @@ import {
   secondSaveBlock,
   tenthSaveBlock,
   tenthUpdatedBlock,
+  eleventhSaveBlock,
 } from './mockedReducerData';
 
 describe('reducers', () => {
@@ -90,6 +91,20 @@ describe('reducers', () => {
         },
       }
     )).toEqual(secondSaveBlock);
+  });
+
+  it('should handle 11th SAVE_BLOCK', () => {
+    expect(blockReducer(
+      tenthSaveBlock,
+      {
+        type: types.SAVE_BLOCK,
+        payload: {
+          number: 123466,
+          transactions: [],
+          timestamp: 1519749108
+        },
+      }
+    )).toEqual(eleventhSaveBlock);
   });
 
   it('should handle QUICKLY_GET_BLOCK', () => {
