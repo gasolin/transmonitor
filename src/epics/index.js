@@ -1,5 +1,5 @@
 import {combineEpics} from 'redux-observable';
-import {getBlockEpic} from './getBlockEpic';
+import {watchBlocksEpic} from './watchBlocksEpic';
 import {quicklyGetBlockEpic} from './quicklyGetBlockEpic';
 
-export const rootEpic = combineEpics(getBlockEpic, quicklyGetBlockEpic);
+export const rootEpic = combineEpics(watchBlocksEpic, quicklyGetBlockEpic);

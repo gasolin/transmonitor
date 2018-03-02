@@ -19,7 +19,7 @@ const watchBlocks$ = new Observable(observer => {
   });
 });
 
-export function getBlockEpic(action$) {
+export function watchBlocksEpic(action$) {
   return action$
     .filter(action => action.type === WATCH_BLOCKS)
     .switchMap(() => watchBlocks$)
@@ -28,4 +28,4 @@ export function getBlockEpic(action$) {
     // .ignoreElements();
 }
 
-export default getBlockEpic;
+export default watchBlocksEpic;
