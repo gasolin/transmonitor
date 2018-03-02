@@ -84,6 +84,69 @@ exports[`TransactionList render correctly 1`] = `
 </div>
 `;
 
+exports[`TransactionList render correctly when some block has 0 transaction with value 1`] = `
+<div
+  id="transactions"
+>
+  <h3>
+    Block #
+    123458
+  </h3>
+  <h5>
+    0
+     transactions with value
+  </h5>
+  <a
+    href="#blocks"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ⬆
+    </span>
+    Back to Blocks list
+  </a>
+  <div
+    className="table-responsive"
+  >
+    <table
+      className="table table-sm table-bordered table-striped table-hover"
+    >
+      <caption>
+        List of transactions with value in a selected block
+      </caption>
+      <thead>
+        <tr>
+          <th>
+            hash #
+          </th>
+          <th>
+            from
+          </th>
+          <th>
+            to
+          </th>
+          <th>
+            value
+          </th>
+        </tr>
+      </thead>
+      <tbody />
+    </table>
+  </div>
+  <a
+    href="#blocks"
+  >
+    <span
+      aria-hidden="true"
+    >
+      ⬆
+    </span>
+    Back to Blocks list
+  </a>
+</div>
+`;
+
 exports[`TransactionList render null when no blocks 1`] = `null`;
 
 exports[`TransactionList render null when no selectedBlock 1`] = `null`;

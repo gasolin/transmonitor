@@ -44,11 +44,11 @@ export function BlockList(props) {
 
 function Block(block) {
   let selected = block.selected ? 'table-primary' : '';
-  let blockNumber = block.totalTransactionsLength ? (<span>{block.number}</span>) :
+  let blockNumber = block.totalTransactionsLength !== undefined ? (<span>{block.number}</span>) :
   (<span>
     <a href="#blocks" data-block={block.number}>{block.number}</a>
   </span>);
-  let transactions = block.totalTransactionsLength ? (<span>
+  let transactions = (block.valueTransactions && block.totalTransactionsLength !== undefined) ? (<span>
     <a href="#transactions" id={block.number}>
     {block.valueTransactions.length}</a> / {block.totalTransactionsLength}
   </span>
