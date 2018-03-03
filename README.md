@@ -47,6 +47,12 @@ The project also use
 * [Applied Javascript Standard Style](https://standardjs.com)
 * Follows [gitemoji](https://gitmoji.carloscuesta.me/) (meaningful commit emoji messages) commit log  for fun
 
+## Project architecture
+
+![Imgur](https://i.imgur.com/JXihfw2.png)
+
+When windows onload (defined in `index.js`), Blocks data are fetched through `quicklyGetBlock` and `watchBlocks` functions (defined in `epics/`). Then, block data is processed and saved to redux store  (defined in `actions` and `reducers/`). `App.js` is monitoring the store change and update components accordingly.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -78,18 +84,22 @@ The build is minified and the filenames include the hashes.<br>
 
 ## Percivable Performance concern
 
-Do profiling with Chrome profiling tool and see no big issue there.
+Do profiling with Chrome profiling tool and see no hard performance issue there.
 
 Previously the transmonitor is designed to only watch the upcoming blocks, so user need to wait ~30s until the next block is mined.
 
 ![Imgur](https://i.imgur.com/UEhDU3V.gif)
 
+First, loading svg is added to make waiting more pleasent.
+
 To improve the fetching speed, `quicklyGetBlockEpic$` is added to quickly get the latest block and fetch block data via web3 `getBlock` api.
 
 ![Imgur](https://i.imgur.com/71qZjCh.gif)
 
-To fetch specific blocks data, `getBlockEpic$` is added so user can easier check previous blocks.
+Now user can see data more quickly, but there's no way to get other older blocks data.
+To fetch specific blocks data, `getBlockEpic$` is added, so user can easier check previous blocks and now there's always a link for user to get the block data.
 
 ![Imgur](https://i.imgur.com/3OaIZt3.gif)
 
 To improve the user experience, we can create new action to batch get and update recent blocks.
+Or we can add an input field to let user input the block number and get any block data.
