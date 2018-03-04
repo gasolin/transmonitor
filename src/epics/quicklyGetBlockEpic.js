@@ -1,9 +1,5 @@
 import {Observable} from 'rxjs'
 import {
-  getBlock$,
-  getBlockNumber$
-} from './web3wrap'
-import {
   QUICKLY_GET_BLOCK,
   saveBlock
 } from '../actions'
@@ -12,7 +8,10 @@ import {
  * Quickly get something to show.
  * Fetching the latest block number and get the block data
  */
-export function quicklyGetBlockEpic (action$) {
+export function quicklyGetBlockEpic (action$, store, {
+  getBlock$,
+  getBlockNumber$
+}) {
   return action$
     .filter(action => action.type === QUICKLY_GET_BLOCK)
     .switchMap(() => getBlockNumber$)

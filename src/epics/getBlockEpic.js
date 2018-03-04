@@ -1,11 +1,10 @@
 import {Observable} from 'rxjs'
-import {getBlock$} from './web3wrap'
 import {
   GET_BLOCK,
   updateBlock
 } from '../actions'
 
-export function getBlockEpic (action$) {
+export function getBlockEpic (action$, store, {getBlock$}) {
   return action$
     .filter(action => action.type === GET_BLOCK)
     .switchMap(action => getBlock$(action.payload))

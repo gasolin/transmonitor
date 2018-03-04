@@ -1,11 +1,10 @@
 import {Observable} from 'rxjs'
-import {watchBlocks$} from './web3wrap'
 import {
   WATCH_BLOCKS,
   saveBlock
 } from '../actions'
 
-export function watchBlocksEpic (action$) {
+export function watchBlocksEpic (action$, store, {watchBlocks$}) {
   return action$
     .filter(action => action.type === WATCH_BLOCKS)
     .switchMap(() => watchBlocks$)
