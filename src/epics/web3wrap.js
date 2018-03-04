@@ -6,7 +6,7 @@ import {ethWeb3} from '../web3connection'
  */
 const getBlockNumber$ = new Observable(observer => {
   ethWeb3.eth.getBlockNumber((error, result) => {
-    if (error) observer.erro(error)
+    if (error) observer.error(error)
     observer.next(result)
     observer.complete()
   })
