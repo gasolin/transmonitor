@@ -1,4 +1,4 @@
-[![travis](https://travis-ci.org/gasolin/transmonitor.svg?branch=master)](https://travis-ci.org/gasolin/transmonitor) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![dependencies Status](https://david-dm.org/gasolin/transmonitor/status.svg)](https://david-dm.org/gasolin/transmonitor) [![travis](https://travis-ci.org/gasolin/transmonitor.svg?branch=master)](https://travis-ci.org/gasolin/transmonitor) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Monitor recent blocks and its transactions with value.
@@ -70,6 +70,10 @@ You will also see any lint errors in the console.
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.<br>
+
+### `yarn test --coverage`
+
+Launches the test runner and generate the test coverage
 
 ### `npm run build`
 
