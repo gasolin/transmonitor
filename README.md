@@ -34,9 +34,7 @@ my-app/
 * `configureStore.js`, `actions` and `reducers` contain `redux` related codes.
 * `epics/` contain `redux-observable/rxjs` codes to retrieve block information.
 * `web3` connection is wrapped in `web3connection.js`
-* `tests/` covers
-  - per component tests via snapshot testing
-  - action and reducer unit test
+* `tests/` contain all related tests
 
 The project also use
 
@@ -52,6 +50,10 @@ The project also use
 ![Imgur](https://i.imgur.com/JXihfw2.png)
 
 When windows onload (defined in `index.js`), Blocks data are fetched through `quicklyGetBlock` and `watchBlocks` functions (defined in `epics/`). Then, block data is processed and saved to redux store  (defined in `actions` and `reducers/`). `App.js` is monitoring the store change and update components accordingly.
+
+![Imgur](https://i.imgur.com/yR7O0CE.png)
+
+There are 3 components in `App.js`. `Header` shows project title and the latest Block number. `BlockList` lists recent 10 blocks, `TransactionList` shows transactions with value in the selected block.
 
 ## Available Scripts
 
@@ -75,6 +77,25 @@ Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.<br>
+
+## Code quality / readability / testability concern
+
+The project follow Javascript Standard Style and use ES6+ syntax. Folder stucture and Project architecture are documented in above sections.
+
+`tests/` contain several kinds of testing
+  - per component tests via snapshot testing
+  - action and reducer unit test
+  - redux-observable unit test
+
+And continue integration via Travis CI is triggered per commit.
+
+## UX / visual concern
+
+Apply minimal Bootstrap theme with half size of table cell padding. The looks and feel is consistent on desktop and mobile device.
+
+![Screenshot in Toshl](https://i.imgur.com/rX6PG73m.jpg)
+
+(Screenshot in Toshl)
 
 ## Accessibility concern
 
@@ -100,6 +121,3 @@ Now user can see data more quickly, but there's no way to get other older blocks
 To fetch specific blocks data, `getBlockEpic$` is added, so user can easier check previous blocks and now there's always a link for user to get the block data.
 
 ![Imgur](https://i.imgur.com/3OaIZt3.gif)
-
-To improve the user experience, we can create new action to batch get and update recent blocks.
-Or we can add an input field to let user input the block number and get any block data.
