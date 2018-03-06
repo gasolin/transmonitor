@@ -1,11 +1,22 @@
 import {BigNumber} from 'bignumber.js'
 
 const initBlockState = {
-  latestBlock: null,
-  selectedBlock: null,
-  loading: false,
   blocks: [],
-  blocksLimit: 10
+  blocksLimit: 10,
+  latestBlock: null,
+  loading: false,
+  noConnection: null,
+  selectedBlock: null
+}
+
+const connectedBlockState = {
+  ...initBlockState,
+  noConnection: false
+}
+
+const notConnectedBlockState = {
+  ...initBlockState,
+  noConnection: true
 }
 
 const firstSaveBlock = {
@@ -13,6 +24,7 @@ const firstSaveBlock = {
   latestBlock: 123456,
   selectedBlock: 123456,
   loading: false,
+  noConnection: false,
   blocks: [{
     number: 123456,
     timestamp: 1519749008,
@@ -74,6 +86,7 @@ const secondSaveBlock = {
   latestBlock: 123457,
   selectedBlock: 123456,
   loading: false,
+  noConnection: false,
   blocks: [ {
     number: 123457,
     timestamp: 1519749108,
@@ -142,6 +155,7 @@ const tenthSaveBlock = {
   latestBlock: 123465,
   selectedBlock: 123456,
   loading: false,
+  noConnection: false,
   blocks: [{
     number: 123465,
     transactions: []
@@ -210,6 +224,7 @@ const tenthUpdatedBlock = {
   latestBlock: 123465,
   selectedBlock: 123461,
   loading: false,
+  noConnection: false,
   blocks: [{
     number: 123465,
     transactions: []
@@ -287,6 +302,7 @@ const eleventhSaveBlock = {
   latestBlock: 123466,
   selectedBlock: 123456,
   loading: false,
+  noConnection: false,
   blocks: [{
     number: 123466,
     totalTransactionsLength: 0,
@@ -358,6 +374,8 @@ const eleventhSaveBlock = {
 
 export {
   initBlockState,
+  connectedBlockState,
+  notConnectedBlockState,
   firstSaveBlock,
   secondSaveBlock,
   tenthSaveBlock,

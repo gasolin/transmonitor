@@ -6,7 +6,11 @@ import App from './App'
 import {Provider} from 'react-redux'
 // import registerServiceWorker from './registerServiceWorker';
 import {configureStore} from './configureStore'
-import {watchBlocks, quicklyGetBlock} from './actions'
+import {
+  quicklyGetBlock,
+  watchBlocks,
+  warnWeb3Connection
+} from './actions'
 
 const store = configureStore()
 
@@ -18,6 +22,12 @@ ReactDOM.render(
 // registerServiceWorker();
 
 window.addEventListener('load', () => {
-  store.dispatch(quicklyGetBlock())
-  store.dispatch(watchBlocks())
+  if (typeof window.web3 === 'undefined') {
+    store.dispatch(warnWeb3Connection(true))
+  } else {
+    store.dispatch(warnWeb3Connection(false))
+    // console.log(window.web3.currentProvider.isMetaMask)
+    store.dispatch(quicklyGetBlock())
+    store.dispatch(watchBlocks())
+  }
 })

@@ -106,6 +106,9 @@ Apply minimal Bootstrap theme with half size of table cell padding. The looks an
 * User can navigate up and down with `tab`/`shift-tab` key without mouse.
 * `caption` is added to help users with screen readers to find a table and understand what it’s about ```<caption>List of blocks</caption>```
 * `⬆` unicode arrow is wrapped with `<span aria-hidden="true">` tag so screen reader will ignore it.
+* When user does not have metamask installed, show the warning message.
+
+![Imgur](https://i.imgur.com/CqbTkOO.png)
 
 ## Percivable Performance concern
 

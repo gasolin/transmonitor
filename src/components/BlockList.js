@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Table} from 'reactstrap'
+import {
+  Alert,
+  Table
+} from 'reactstrap'
 import Loading from '../loading-bubbles.svg'
 
 let handleClick = (e, props) => {
@@ -15,6 +18,11 @@ let handleClick = (e, props) => {
 }
 
 export function BlockList (props) {
+  if (props.noConnection === true) {
+    return (
+      <Alert color='danger'>Your browser is not connected to the ethereum network. Please install <a href='https://metamask.io/' target='_blank' rel='noopener noreferrer'>MetaMask</a>.</Alert>
+    )
+  }
   if (props.loading) {
     return (
       <div><img src={Loading} alt='Loading...' /></div>
@@ -64,6 +72,7 @@ BlockList.propTypes = {
   blocks: PropTypes.array,
   getBlock: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
+  noConnection: PropTypes.bool,
   selectBlock: PropTypes.func.isRequired
 }
 

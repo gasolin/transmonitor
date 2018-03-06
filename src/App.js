@@ -23,6 +23,7 @@ function mapState (state) {
     blocks: state.blocks.blocks,
     latestBlock: state.blocks.latestBlock,
     loading: state.blocks.loading,
+    noConnection: state.blocks.noConnection,
     selectedBlock: state.blocks.selectedBlock
   }
 }

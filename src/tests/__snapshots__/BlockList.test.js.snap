@@ -105,3 +105,20 @@ exports[`BlockList render correctly 1`] = `
 `;
 
 exports[`BlockList render null when no blocks 1`] = `null`;
+
+exports[`BlockList render warning when no connection 1`] = `
+<div
+  className="alert alert-danger fade"
+  role="alert"
+>
+  Your browser is not connected to the ethereum network. Please install 
+  <a
+    href="https://metamask.io/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    MetaMask
+  </a>
+  .
+</div>
+`;

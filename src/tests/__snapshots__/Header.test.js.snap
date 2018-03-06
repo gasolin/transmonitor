@@ -6,6 +6,19 @@ exports[`BlockList render correctly 1`] = `
 >
   <a
     className="navbar-brand"
+    href="#"
+  >
+    Transactions Monitor
+  </a>
+</nav>
+`;
+
+exports[`BlockList render correctly with latest block 1`] = `
+<nav
+  className="navbar navbar-expand-lg navbar-dark bg-dark"
+>
+  <a
+    className="navbar-brand"
     href="#transactions"
     onClick={[Function]}
   >

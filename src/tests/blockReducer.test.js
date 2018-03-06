@@ -4,6 +4,8 @@ import * as types from '../actions/index'
 import {BigNumber} from 'bignumber.js'
 import {
   initBlockState,
+  connectedBlockState,
+  notConnectedBlockState,
   firstSaveBlock,
   secondSaveBlock,
   tenthSaveBlock,
@@ -16,34 +18,54 @@ describe('reducers', () => {
     expect(blockReducer(undefined, {})).toEqual(initBlockState)
   })
 
+  it('should handle WARN_WEB3_CONNECTION when connected', () => {
+    expect(blockReducer(
+      initBlockState,
+      {
+        type: types.WARN_WEB3_CONNECTION,
+        payload: false
+      }
+    )).toEqual(connectedBlockState)
+  })
+
+  it('should handle WARN_WEB3_CONNECTION when not connected', () => {
+    expect(blockReducer(
+      initBlockState,
+      {
+        type: types.WARN_WEB3_CONNECTION,
+        payload: true
+      }
+    )).toEqual(notConnectedBlockState)
+  })
+
   it('should handle WATCH_BLOCKS', () => {
     expect(blockReducer(
-      undefined,
+      connectedBlockState,
       {
         type: types.WATCH_BLOCKS
       }
     )).toEqual({
-      ...initBlockState,
+      ...connectedBlockState,
       loading: true
     })
   })
 
   it('should handle SELECT_BLOCK', () => {
     expect(blockReducer(
-      undefined,
+      connectedBlockState,
       {
         type: types.SELECT_BLOCK,
         payload: 123456
       }
     )).toEqual({
-      ...initBlockState,
+      ...connectedBlockState,
       selectedBlock: 123456
     })
   })
 
   it('should handle first SAVE_BLOCK', () => {
     expect(blockReducer(
-      undefined,
+      connectedBlockState,
       {
         type: types.SAVE_BLOCK,
         payload: {

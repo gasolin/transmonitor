@@ -2,6 +2,20 @@
 import * as actions from '../actions/index'
 
 describe('actions', () => {
+  it('should create an action to warn there is no web3 connection', () => {
+    const expectedAction = {
+      type: actions.WARN_WEB3_CONNECTION,
+      payload: true
+    }
+    expect(actions.warnWeb3Connection(true)).toEqual(expectedAction)
+
+    const expectedNormalConnectionAction = {
+      type: actions.WARN_WEB3_CONNECTION,
+      payload: false
+    }
+    expect(actions.warnWeb3Connection(false)).toEqual(expectedNormalConnectionAction)
+  })
+
   it('should create an action to get latest blocks', () => {
     const expectedAction = {
       type: actions.WATCH_BLOCKS

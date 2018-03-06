@@ -5,9 +5,17 @@ import renderer from 'react-test-renderer'
 import BlockList from '../components/BlockList'
 
 describe('BlockList', function () {
+  let mockPropsNoConnection = {
+    getBlock: () => {},
+    loading: false,
+    noConnection: true,
+    selectBlock: () => {}
+  }
+
   let mockPropsLoading = {
     getBlock: () => {},
     loading: true,
+    noConnection: false,
     selectBlock: () => {}
   }
 
@@ -15,6 +23,7 @@ describe('BlockList', function () {
     blocks: [],
     getBlock: () => {},
     loading: false,
+    noConnection: false,
     selectBlock: () => {}
   }
 
@@ -42,8 +51,15 @@ describe('BlockList', function () {
     ],
     getBlock: () => {},
     loading: false,
+    noConnection: false,
     selectBlock: () => {}
   }
+
+  it('renders without crashing when no connection', () => {
+    const div = document.createElement('div')
+    ReactDOM.render(<BlockList {...mockPropsNoConnection} />, div)
+    ReactDOM.unmountComponentAtNode(div)
+  })
 
   it('renders without crashing when loading', () => {
     const div = document.createElement('div')
@@ -61,6 +77,12 @@ describe('BlockList', function () {
     const div = document.createElement('div')
     ReactDOM.render(<BlockList {...mockPropsNoBlock} />, div)
     ReactDOM.unmountComponentAtNode(div)
+  })
+
+  it('render warning when no connection', () => {
+    const component = renderer.create(<BlockList {...mockPropsNoConnection} />)
+    let tree = component.toJSON()
+    expect(tree).toMatchSnapshot()
   })
 
   it('render null when no blocks', () => {

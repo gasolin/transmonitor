@@ -1,14 +1,23 @@
-/* global describe, it, expect */
+/* global jest, describe, it, expect */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import {BigNumber} from 'bignumber.js'
 import TransactionList from '../components/TransactionList'
+import '../web3connection'
+jest.mock('../web3connection', () => {
+  return {
+    ethWeb3: {
+      fromWei: (bn) => '0.19988903'
+    }
+  }
+})
 
 describe('TransactionList', function () {
   let mockPropsNoSelectedBlock = {
     blocks: [{}],
-    selectedBlock: null
+    selectedBlock: null,
+    noConnection: false
   }
 
   let mockPropsNoBlock = {
