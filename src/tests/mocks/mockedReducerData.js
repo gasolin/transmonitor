@@ -41,42 +41,6 @@ const firstSaveBlock = {
         value: new BigNumber('33000000000')
       }
     ]
-  },
-  {
-    number: 123455,
-    transactions: []
-  },
-  {
-    number: 123454,
-    transactions: []
-  },
-  {
-    number: 123453,
-    transactions: []
-  },
-  {
-    number: 123452,
-    transactions: []
-  },
-  {
-    number: 123451,
-    transactions: []
-  },
-  {
-    number: 123450,
-    transactions: []
-  },
-  {
-    number: 123449,
-    transactions: []
-  },
-  {
-    number: 123448,
-    transactions: []
-  },
-  {
-    number: 123447,
-    transactions: []
   }]
 }
 
@@ -114,38 +78,6 @@ const secondSaveBlock = {
         value: new BigNumber('33000000000')
       }
     ]
-  },
-  {
-    number: 123455,
-    transactions: []
-  },
-  {
-    number: 123454,
-    transactions: []
-  },
-  {
-    number: 123453,
-    transactions: []
-  },
-  {
-    number: 123452,
-    transactions: []
-  },
-  {
-    number: 123451,
-    transactions: []
-  },
-  {
-    number: 123450,
-    transactions: []
-  },
-  {
-    number: 123449,
-    transactions: []
-  },
-  {
-    number: 123448,
-    transactions: []
   }]
 }
 

@@ -15,7 +15,14 @@ export function quicklyGetBlockEpic (action$, store, {
   return action$
     .filter(action => action.type === QUICKLY_GET_BLOCK)
     .switchMap(() => getBlockNumber$)
-    .switchMap(number => getBlock$(number))
+    .switchMap(number => {
+      let blocks = []
+      for (let i = 0; i < 10; i++) {
+        blocks.push(getBlock$(number - i))
+      }
+      return blocks
+    })
+    .concatAll()
     .switchMap(block => Observable.of(saveBlock(block)))
 }
 

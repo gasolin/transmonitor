@@ -128,3 +128,7 @@ Now user can see data more quickly, but there's no way to get other older blocks
 To fetch specific blocks data, `getBlockEpic$` is added, so user can easier check previous blocks and now there's always a link for user to get the block data.
 
 ![Imgur](https://i.imgur.com/3OaIZt3.gif)
+
+After learned more about rxjs, concatAll is used in `quicklyGetBlockEpic$` to fetch 10 recent blocks and contat all results in stream. Therefore user don't need to click the link to fetch the older block data.
+
+![Imgur](https://i.imgur.com/c7GhwyF.gif)

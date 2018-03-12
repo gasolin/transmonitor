@@ -55,17 +55,8 @@ export function blockReducer (state = initialState, action) {
       },
       ...state.blocks]
 
-      // run at first time to stuff mock blocks
-      if (blocks.length < BLOCKS_LIMIT) {
-        let smallestNumber = blocks[blocks.length - 1].number
-        for (let i = 0; i < BLOCKS_LIMIT - 1; i++) {
-          blocks = [...blocks, {
-            number: --smallestNumber,
-            transactions: []
-          }]
-        }
-      } else if (blocks.length > BLOCKS_LIMIT) {
-        // only show recent 10 blocks + selected block
+      // only show recent 10 blocks + selected block
+      if (blocks.length > BLOCKS_LIMIT) {
         let tempSelectedBlock
         if (latestBlock - selectedBlock > BLOCKS_LIMIT - 1) {
           let selectedBlockIdx = blocks.findIndex(block => block.number === selectedBlock)
