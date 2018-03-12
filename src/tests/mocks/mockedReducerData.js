@@ -2,7 +2,6 @@ import {BigNumber} from 'bignumber.js'
 
 const initBlockState = {
   blocks: [],
-  blocksLimit: 10,
   latestBlock: null,
   loading: false,
   noConnection: null,

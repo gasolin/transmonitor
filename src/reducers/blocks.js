@@ -8,10 +8,10 @@ import {
   WARN_WEB3_CONNECTION,
   WATCH_BLOCKS
 } from '../actions'
+import {BLOCKS_LIMIT} from '../constants'
 
 const initialState = {
   blocks: [],
-  blocksLimit: 10,
   noConnection: null,
   latestBlock: null,
   loading: false,
@@ -31,7 +31,6 @@ export function blockReducer (state = initialState, action) {
         loading: true
       }
     case SAVE_BLOCK:
-      const BLOCKS_LIMIT = state.blocksLimit
       let number = action.payload.number
       let timestamp = action.payload.timestamp
       // update latestBlock when there's a block with bigger number

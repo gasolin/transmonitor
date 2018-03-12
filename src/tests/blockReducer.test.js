@@ -11,7 +11,7 @@ import {
   tenthSaveBlock,
   tenthUpdatedBlock,
   eleventhSaveBlock
-} from './mockedReducerData'
+} from './mocks/mockedReducerData'
 
 describe('reducers', () => {
   it('should return the initial state', () => {
