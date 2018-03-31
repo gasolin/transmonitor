@@ -14,7 +14,7 @@
     "redux": "3.7.2",
     "redux-observable": "0.18.0",
     "rxjs": "5.5.6",
-    "web3": "0.20.5"
+    "web3": "0.20.6"
   },
   "scripts": {
     "start": "react-scripts start",
