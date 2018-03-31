@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "bignumber.js": "^6.0.0",
-    "bootstrap": "^4.0.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
-    "react-test-renderer": "^16.2.0",
-    "reactstrap": "^5.0.0-beta",
-    "redux": "^3.7.2",
-    "redux-observable": "^0.18.0",
-    "rxjs": "^5.5.6",
+    "bignumber.js": "6.0.0",
+    "bootstrap": "4.0.0",
+    "prop-types": "15.6.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "react-redux": "5.0.7",
+    "react-test-renderer": "16.2.0",
+    "reactstrap": "5.0.0-beta",
+    "redux": "3.7.2",
+    "redux-observable": "0.18.0",
+    "rxjs": "5.5.6",
     "web3": "0.20.5"
   },
   "scripts": {
@@ -24,10 +24,10 @@
   },
   "homepage": "https://gasolin.github.io/transmonitor",
   "devDependencies": {
-    "codecov": "^3.0.0",
-    "cz-gitmoji-changelog": "^1.1.0",
+    "codecov": "3.0.0",
+    "cz-gitmoji-changelog": "1.1.0",
     "react-scripts": "1.1.1",
-    "standard": "^11.0.0"
+    "standard": "11.0.0"
   },
   "jest": {
     "coverageThreshold": {
