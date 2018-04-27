@@ -8,7 +8,7 @@ import {
   watchBlocks$
 } from './epics/web3wrap'
 
-export function configureStore (deps = {}) {
+function configureStore (deps = {}) {
   const epicMiddleware = createEpicMiddleware(rootEpic, {
     dependencies: {
       getBlock$,
@@ -26,4 +26,11 @@ export function configureStore (deps = {}) {
       applyMiddleware(epicMiddleware)
     )
   )
+}
+
+const store = configureStore()
+
+export {
+  configureStore,
+  store
 }

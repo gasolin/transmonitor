@@ -3,16 +3,14 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import App from './App'
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 // import registerServiceWorker from './registerServiceWorker';
-import {configureStore} from './configureStore'
+import { store } from './state/store'
 import {
   quicklyGetBlock,
   watchBlocks,
   warnWeb3Connection
-} from './actions'
-
-const store = configureStore()
+} from './state/actions'
 
 ReactDOM.render(
   <Provider store={store}>

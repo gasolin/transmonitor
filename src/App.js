@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {
   getBlock,
   selectBlock
-} from './actions'
+} from './state/actions'
 import {Header} from './components/Header'
 import {BlockList} from './components/BlockList'
 import {TransactionList} from './components/TransactionList'

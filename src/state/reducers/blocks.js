@@ -8,7 +8,7 @@ import {
   WARN_WEB3_CONNECTION,
   WATCH_BLOCKS
 } from '../actions'
-import {BLOCKS_LIMIT} from '../constants'
+import {BLOCKS_LIMIT} from '../../constants'
 
 const initialState = {
   blocks: [],

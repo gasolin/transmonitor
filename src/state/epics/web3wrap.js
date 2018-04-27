@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs'
-import {ethWeb3} from '../web3connection'
+import {ethWeb3} from '../../web3connection'
 
 /*
  * wrap web3 getBlockNumber callback to rxjs Observable.
