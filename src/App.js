@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {
   getBlock,
   selectBlock
-} from './state/actions'
+} from './state/blocks/actions'
 import {Header} from './components/Header'
 import {BlockList} from './components/BlockList'
 import {TransactionList} from './components/TransactionList'
@@ -23,8 +23,8 @@ function mapState (state) {
     blocks: state.blocks.blocks,
     latestBlock: state.blocks.latestBlock,
     loading: state.blocks.loading,
-    noConnection: state.blocks.noConnection,
-    selectedBlock: state.blocks.selectedBlock
+    selectedBlock: state.blocks.selectedBlock,
+    web3: state.web3.web3
   }
 }
 

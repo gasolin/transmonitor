@@ -5,14 +5,12 @@ import {
   SAVE_BLOCK,
   SELECT_BLOCK,
   UPDATE_BLOCK,
-  WARN_WEB3_CONNECTION,
   WATCH_BLOCKS
-} from '../actions'
+} from './types'
 import {BLOCKS_LIMIT} from '../../constants'
 
 const initialState = {
   blocks: [],
-  noConnection: null,
   latestBlock: null,
   loading: false,
   selectedBlock: null
@@ -20,11 +18,6 @@ const initialState = {
 
 export function blockReducer (state = initialState, action) {
   switch (action.type) {
-    case WARN_WEB3_CONNECTION:
-      return {
-        ...state,
-        noConnection: action.payload
-      }
     case WATCH_BLOCKS:
       return {
         ...state,

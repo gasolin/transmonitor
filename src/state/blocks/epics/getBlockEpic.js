@@ -1,8 +1,6 @@
 import {Observable} from 'rxjs'
-import {
-  GET_BLOCK,
-  updateBlock
-} from '../actions'
+import { GET_BLOCK } from '../types'
+import { updateBlock } from '../actions'
 
 export function getBlockEpic (action$, store, {getBlock$}) {
   return action$

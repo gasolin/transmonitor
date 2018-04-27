@@ -10,7 +10,7 @@ function handleClick (e) {
 }
 
 export function TransactionList (props) {
-  if (props.noConnection === true || props.blocks.length === 0 || !props.selectedBlock) return null
+  if (props.web3 === null || props.blocks.length === 0 || !props.selectedBlock) return null
   let sortedBlocks = props.blocks.sort((a, b) => b.number - a.number)
   let idx = sortedBlocks.findIndex(block => block.number === props.selectedBlock)
   if (idx === -1) return null
@@ -52,8 +52,8 @@ function Transaction (transaction) {
 
 TransactionList.propTypes = {
   blocks: PropTypes.array,
-  noConnection: PropTypes.bool,
-  selectedBlock: PropTypes.number
+  selectedBlock: PropTypes.number,
+  web3: PropTypes.object
 }
 
 export default TransactionList

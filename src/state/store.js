@@ -1,12 +1,12 @@
 import {createStore, applyMiddleware, compose} from 'redux'
-import reducer from './reducers'
+import reducer from './reducer'
 import {createEpicMiddleware} from 'redux-observable'
-import {rootEpic} from './epics'
+import {rootEpic} from './blocks/epics'
 import {
   getBlock$,
   getBlockNumber$,
   watchBlocks$
-} from './epics/web3wrap'
+} from './blocks/epics/web3wrap'
 
 function configureStore (deps = {}) {
   const epicMiddleware = createEpicMiddleware(rootEpic, {

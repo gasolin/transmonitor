@@ -1,8 +1,6 @@
 import {Observable} from 'rxjs'
-import {
-  QUICKLY_GET_BLOCK,
-  saveBlock
-} from '../actions'
+import { QUICKLY_GET_BLOCK } from '../types'
+import { saveBlock } from '../actions'
 
 /**
  * Quickly get something to show.

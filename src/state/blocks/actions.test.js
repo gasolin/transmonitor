@@ -1,38 +1,25 @@
 /* global describe, it, expect */
-import * as actions from '../actions/index'
+import * as types from './types'
+import * as actions from './actions'
 
 describe('actions', () => {
-  it('should create an action to warn there is no web3 connection', () => {
-    const expectedAction = {
-      type: actions.WARN_WEB3_CONNECTION,
-      payload: true
-    }
-    expect(actions.warnWeb3Connection(true)).toEqual(expectedAction)
-
-    const expectedNormalConnectionAction = {
-      type: actions.WARN_WEB3_CONNECTION,
-      payload: false
-    }
-    expect(actions.warnWeb3Connection(false)).toEqual(expectedNormalConnectionAction)
-  })
-
   it('should create an action to get latest blocks', () => {
     const expectedAction = {
-      type: actions.WATCH_BLOCKS
+      type: types.WATCH_BLOCKS
     }
     expect(actions.watchBlocks()).toEqual(expectedAction)
   })
 
   it('should create an action to get latest block', () => {
     const expectedAction = {
-      type: actions.QUICKLY_GET_BLOCK
+      type: types.QUICKLY_GET_BLOCK
     }
     expect(actions.quicklyGetBlock()).toEqual(expectedAction)
   })
 
   it('should create an action to get specified block via block number', () => {
     const expectedAction = {
-      type: actions.GET_BLOCK,
+      type: types.GET_BLOCK,
       payload: 123456
     }
     expect(actions.getBlock(123456)).toEqual(expectedAction)
@@ -40,7 +27,7 @@ describe('actions', () => {
 
   it('should create an action to save block to store', () => {
     const expectedAction = {
-      type: actions.SAVE_BLOCK,
+      type: types.SAVE_BLOCK,
       payload: {}
     }
     expect(actions.saveBlock({})).toEqual(expectedAction)
@@ -48,7 +35,7 @@ describe('actions', () => {
 
   it('should create an action to process and update the block data', () => {
     const expectedAction = {
-      type: actions.UPDATE_BLOCK,
+      type: types.UPDATE_BLOCK,
       payload: {}
     }
     expect(actions.updateBlock({})).toEqual(expectedAction)
@@ -56,7 +43,7 @@ describe('actions', () => {
 
   it('should create an action to select block data from store', () => {
     const expectedAction = {
-      type: actions.SELECT_BLOCK,
+      type: types.SELECT_BLOCK,
       payload: 123456
     }
     expect(actions.selectBlock(123456)).toEqual(expectedAction)

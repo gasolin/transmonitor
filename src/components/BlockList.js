@@ -10,7 +10,6 @@ import { smoothScroll } from '../utils'
 let handleClick = (e, props) => {
   if (e.target.id) {
     e.preventDefault()
-    console.warn(e.target.href)
     props.selectBlock(parseInt(e.target.id, 10))
     smoothScroll('#transactions')
   }
@@ -21,7 +20,7 @@ let handleClick = (e, props) => {
 }
 
 export function BlockList (props) {
-  if (props.noConnection === true) {
+  if (props.web3 === null) {
     return (
       <Alert color='danger'>Your browser is not connected to the ethereum network. Please install <a href='https://metamask.io/' target='_blank' rel='noopener noreferrer'>MetaMask</a>.</Alert>
     )
@@ -75,8 +74,8 @@ BlockList.propTypes = {
   blocks: PropTypes.array,
   getBlock: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
-  noConnection: PropTypes.bool,
-  selectBlock: PropTypes.func.isRequired
+  selectBlock: PropTypes.func.isRequired,
+  web3: PropTypes.object
 }
 
 export default BlockList

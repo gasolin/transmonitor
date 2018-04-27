@@ -8,9 +8,10 @@ import { Provider } from 'react-redux'
 import { store } from './state/store'
 import {
   quicklyGetBlock,
-  watchBlocks,
-  warnWeb3Connection
-} from './state/actions'
+  watchBlocks
+} from './state/blocks/actions'
+import { updateWeb3Status } from './state/web3/actions'
+import Web3 from 'web3'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,12 +21,13 @@ ReactDOM.render(
 // registerServiceWorker();
 
 window.addEventListener('load', () => {
-  if (typeof window.web3 === 'undefined') {
-    store.dispatch(warnWeb3Connection(true))
-  } else {
-    store.dispatch(warnWeb3Connection(false))
+  let hasWeb3 = typeof window.web3 !== 'undefined'
+  if (hasWeb3) {
+    store.dispatch(updateWeb3Status(new Web3(window.web3.currentProvider)))
     // console.log(window.web3.currentProvider.isMetaMask)
     store.dispatch(quicklyGetBlock())
     store.dispatch(watchBlocks())
+  } else {
+    store.dispatch(updateWeb3Status(null))
   }
 })

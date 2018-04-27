@@ -5,8 +5,8 @@ import {ActionsObservable} from 'redux-observable'
 import {
   QUICKLY_GET_BLOCK,
   SAVE_BLOCK
-} from '../actions'
-import {quicklyGetBlockEpic} from '../epics/quicklyGetBlockEpic'
+} from '../types'
+import {quicklyGetBlockEpic} from './quicklyGetBlockEpic'
 
 it('should return correct actions', () => {
   const action$ = ActionsObservable.of({

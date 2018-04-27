@@ -5,8 +5,8 @@ import {ActionsObservable} from 'redux-observable'
 import {
   SAVE_BLOCK,
   WATCH_BLOCKS
-} from '../actions'
-import {watchBlocksEpic} from '../epics/watchBlocksEpic'
+} from '../types'
+import {watchBlocksEpic} from './watchBlocksEpic'
 
 it('should return correct actions', () => {
   const action$ = ActionsObservable.of({

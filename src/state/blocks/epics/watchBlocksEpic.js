@@ -1,8 +1,6 @@
 import {Observable} from 'rxjs'
-import {
-  WATCH_BLOCKS,
-  saveBlock
-} from '../actions'
+import { WATCH_BLOCKS } from '../types'
+import { saveBlock } from '../actions'
 
 export function watchBlocksEpic (action$, store, {watchBlocks$}) {
   return action$
