@@ -5,15 +5,18 @@ import {
   Table
 } from 'reactstrap'
 import Loading from '../loading-bubbles.svg'
+import { smoothScroll } from '../utils'
 
 let handleClick = (e, props) => {
-  // should not prevent default here since we want to jump to the top of
-  // transactions list with the html anchor
   if (e.target.id) {
+    e.preventDefault()
+    console.warn(e.target.href)
     props.selectBlock(parseInt(e.target.id, 10))
+    smoothScroll('#transactions')
   }
   if (e.target.dataset.block) {
     props.getBlock(parseInt(e.target.dataset.block, 10))
+    smoothScroll('#transactions')
   }
 }
 

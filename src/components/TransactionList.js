@@ -2,6 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Table} from 'reactstrap'
 import {ethWeb3} from '../web3connection'
+import { smoothScroll } from '../utils'
+
+function handleClick (e) {
+  e.preventDefault()
+  smoothScroll('#blocks')
+}
 
 export function TransactionList (props) {
   if (props.noConnection === true || props.blocks.length === 0 || !props.selectedBlock) return null
@@ -12,7 +18,7 @@ export function TransactionList (props) {
   return (<div id='transactions'>
     <h3>Block #{props.selectedBlock}</h3>
     <h5>{transactions.length} transactions with value</h5>
-    <a href='#blocks'><span aria-hidden='true'>⬆</span>Back to Blocks list</a>
+    <a href='#blocks' onClick={(e) => handleClick(e)}><span aria-hidden='true'>⬆</span>Back to Blocks list</a>
     <Table bordered striped hover responsive size='sm'>
       <caption>List of transactions with value in a selected block</caption>
       <thead>
@@ -27,7 +33,7 @@ export function TransactionList (props) {
         {transactions.map((transaction) => <Transaction {...transaction} key={transaction.hash} />)}
       </tbody>
     </Table>
-    <a href='#blocks'><span aria-hidden='true'>⬆</span>Back to Blocks list</a>
+    <a href='#blocks' onClick={(e) => handleClick(e)}><span aria-hidden='true'>⬆</span>Back to Blocks list</a>
   </div>)
 }
 

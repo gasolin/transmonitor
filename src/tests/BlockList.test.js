@@ -67,12 +67,6 @@ describe('BlockList', function () {
     ReactDOM.unmountComponentAtNode(div)
   })
 
-  it('renders without crashing after loading', () => {
-    const div = document.createElement('div')
-    ReactDOM.render(<BlockList {...mockPropsNoBlock} />, div)
-    ReactDOM.unmountComponentAtNode(div)
-  })
-
   it('renders null without crashing after loading', () => {
     const div = document.createElement('div')
     ReactDOM.render(<BlockList {...mockPropsNoBlock} />, div)

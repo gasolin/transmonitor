@@ -14,6 +14,7 @@ exports[`TransactionList render correctly 1`] = `
   </h5>
   <a
     href="#blocks"
+    onClick={[Function]}
   >
     <span
       aria-hidden="true"
@@ -73,6 +74,7 @@ exports[`TransactionList render correctly 1`] = `
   </div>
   <a
     href="#blocks"
+    onClick={[Function]}
   >
     <span
       aria-hidden="true"
@@ -98,6 +100,7 @@ exports[`TransactionList render correctly when some block has 0 transaction with
   </h5>
   <a
     href="#blocks"
+    onClick={[Function]}
   >
     <span
       aria-hidden="true"
@@ -136,6 +139,7 @@ exports[`TransactionList render correctly when some block has 0 transaction with
   </div>
   <a
     href="#blocks"
+    onClick={[Function]}
   >
     <span
       aria-hidden="true"

@@ -5,11 +5,18 @@ import {
   Navbar,
   NavbarBrand
 } from 'reactstrap'
+import { smoothScroll } from '../utils'
+
+function handleClick (e, props) {
+  e.preventDefault()
+  props.selectBlock(props.latestBlock)
+  smoothScroll('#transactions')
+}
 
 export function Header (props) {
   return props.latestBlock ? (
     <Navbar color='dark' dark expand='lg'>
-      <NavbarBrand href='#transactions' onClick={() => props.selectBlock(props.latestBlock)}>Transactions Monitor <Badge color='info' tooltip='Latest Block'>#{props.latestBlock}</Badge>
+      <NavbarBrand href='#transactions' onClick={(e) => handleClick(e, props)}>Transactions Monitor <Badge color='info' tooltip='Latest Block'>#{props.latestBlock}</Badge>
       </NavbarBrand>
     </Navbar>
   ) : (
