@@ -18,21 +18,27 @@ my-app/
     index.html
     favicon.ico
   src/
-    actions/
     components/
-    epics/
-    reducers/
     tests/
     App.js
-    configureStore.js
     index.css
     index.js
     web3connection.js
+    state/
+      blocks/
+        actions.js
+        epics/    
+        reducers.js
+        types.js
+      reducer.js
+      status/
+      store.js
+      web3/
 ```
 
 * `components/` contain all react components and `src/App.js` is the entry point.
-* `configureStore.js`, `actions` and `reducers` contain `redux` related codes.
-* `epics/` contain `redux-observable/rxjs` codes to retrieve block information.
+* `state/store.js`, `actions` and `reducers` contain `redux` related codes.
+* `state/blocks/epics/` contain `redux-observable/rxjs` codes to retrieve block information.
 * `web3` connection is wrapped in `web3connection.js`
 * `tests/` contain all related tests
 
