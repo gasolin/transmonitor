@@ -27,7 +27,7 @@
     "codecov": "3.0.0",
     "cz-gitmoji-changelog": "1.1.0",
     "react-scripts": "1.1.4",
-    "standard": "11.0.1"
+    "standard": "12.0.0"
   },
   "jest": {
     "coverageThreshold": {
