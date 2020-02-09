@@ -24,7 +24,7 @@
   },
   "homepage": "https://gasolin.github.io/transmonitor",
   "devDependencies": {
-    "codecov": "3.0.0",
+    "codecov": "3.6.5",
     "cz-gitmoji-changelog": "1.1.0",
     "react-scripts": "1.1.5",
     "standard": "12.0.1"
